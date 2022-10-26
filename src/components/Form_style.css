@@ -1,0 +1,44 @@
+.formTag{
+    
+}
+
+.form{
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px rgb(122, 144, 133) dashed;
+    border-radius: 10px;
+}
+
+.form input{
+    max-width: 500px;
+    padding:10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 17px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+label{
+    display: block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 1rem;
+}
+
+.btn{
+    margin: 2px;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: rgb(40, 23, 19);
+    color: white;
+    font-size: 15px;
+}
+
+.warning{
+    color: brown;
+}
+
