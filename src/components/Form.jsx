@@ -11,7 +11,6 @@ const Form = () => {
   const handleChange = (e) => {
     const {name, value} = e.target;
     setFormValues({...formValues, [name]: value});
-    console.log(formValues);
   }
 
   const FormHandler = (e) => {
@@ -21,10 +20,10 @@ const Form = () => {
   }
 
   useEffect(() => {
-    if(Object.keys(formErrors).length ===0 && isSubmit){
+    if(Object.keys(formErrors).length === 0 && isSubmit){
       console.log(formValues);
     }
-  })
+  },[formErrors]);
 
   const validate = (values) =>{
     const errors = {};
@@ -40,19 +39,32 @@ const Form = () => {
 
     if(!values.email){
       errors.email = "Email required!";
+    }else if(!regex.test(values.email)){
+      errors.email = "Invalid email formate";
     }
 
     if(!values.pwd){
       errors.pwd = "Password required!";
+    }else if(values.pwd.length < 8){
+      errors.pwd = "Weak password";
+    }else if(values.pwd.length > 10){
+      errors.pwd = "Password is too long";
     }
+    return errors;
   }
 
   return (
     <div className='entry'>
+      <div className="space"></div>
+      <div className=''>
         <form action="" onSubmit={FormHandler} className='form'>
-          <div >
+          <div className='flex-container'>
             <h3 className='formTag'>Sign-in</h3>
           </div>
+
+            <div className='flex-container formMessage'>
+              {Object.keys(formErrors).length === 0 && isSubmit ? (<div className="ui_message">Sign in success..!</div>) : ""}
+            </div>
           
             <label htmlFor="">First Name:</label>
             <input type="text"
@@ -61,6 +73,7 @@ const Form = () => {
                 value={formValues.firstName}
                 onChange={handleChange}
             />
+            <p className="warning">{formErrors.firstName}</p>
 
             <label htmlFor="">Last Name:</label>
             <input type="text"
@@ -69,6 +82,7 @@ const Form = () => {
                 value={formValues.lastName}
                 onChange={handleChange}
             />
+            <p className="warning">{formErrors.lastName}</p>
 
             <label htmlFor="">Email:</label>
             <input type="text" 
@@ -77,6 +91,7 @@ const Form = () => {
                 value={formValues.email}
                 onChange={handleChange}
             />
+            <p className="warning">{formErrors.email}</p>
 
             <label htmlFor="">Password:</label>
             <input type="password"
@@ -85,9 +100,12 @@ const Form = () => {
               value={formValues.password}
               onChange={handleChange}
             />
+            <p className="warning">{formErrors.pwd}</p>
             
             <button className='btn' >Sign-up</button>
         </form>
+      </div>
+      <div className="space"></div>
     </div>
   )
 }

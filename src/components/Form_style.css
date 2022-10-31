@@ -1,31 +1,65 @@
-.formTag{
+.flex-container{
+    display: flex;
+    justify-content: center;
+}
+
+.entry{
+    background-color: rgb(54, 48, 47);
+}
+
+.formMessage{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 2px;
     
 }
 
+.ui_message{
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px auto;
+    width: 150px;
+    text-align: center;
+    background-color: rgb(54, 48, 47);
+    color: white;
+}
+
+.formTag{
+    font-size: 24px;
+}
+
+.space{
+    padding: 20px;
+    background-color: rgb(54, 48, 47);
+}
+
 .form{
+    margin-left: 30%;
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    margin: 50px auto;
-    padding: 20px;
-    border: 2px rgb(122, 144, 133) dashed;
+    padding: 10px;
+    border: 2px rgb(122, 144, 133) solid;
     border-radius: 10px;
+    color: black;
+    background-color: white;
 }
 
 .form input{
     max-width: 500px;
-    padding:10px;
+    padding: 10px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 17px;
     border: 1px solid;
     border-radius: 5px;
-    margin: 5px;
+    
 }
 
 label{
     display: block;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .btn{
